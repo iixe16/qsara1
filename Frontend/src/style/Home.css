@@ -1,0 +1,205 @@
+/* تنسيقات عامة */
+.bg-primary {
+  background-color: #f5f5f5;
+  width: 100%;
+  overflow: hidden;
+}
+
+.paddingX {
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+/* إزالة البادينج من الأعلى */
+.paddingY {
+  padding-top: 0;
+  padding-bottom: 16px;
+}
+
+.padding {
+  padding: 16px;
+}
+
+.marginX {
+  margin-left: 16px;
+  margin-right: 16px;
+}
+
+.marginY {
+  margin-top: 16px;
+  margin-bottom: 16px;
+}
+
+.flexCenter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.flexStart {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.boxWidth {
+  width: 100%;
+  max-width: 1200px;
+}
+
+.heading2 {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 40px;
+  color: #333;
+  line-height: 66.8px;
+  width: 100%;
+}
+
+.heading2-xs {
+  font-size: 48px;
+  line-height: 76.8px;
+}
+
+.paragraph {
+  font-family: 'Poppins', sans-serif;
+  font-weight: normal;
+  color: #666;
+  font-size: 18px;
+  line-height: 30.8px;
+}
+
+/* ✅ عدلنا هنا لإزالة البادينج العلوي */
+.section {
+  display: flex;
+  flex-direction: column;
+  padding-top: 0;
+  padding-bottom: 16px;
+}
+
+.sectionReverse {
+  display: flex;
+  flex-direction: column-reverse;
+  padding-top: 0;
+  padding-bottom: 16px;
+}
+
+.sectionImgReverse,
+.sectionImg {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+  position: relative;
+}
+
+.sectionInfo {
+  flex: 1;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: column;
+}
+
+/* ✅ للشاشة الكبيرة */
+@media (max-width: 1200px) {
+  .heading2 {
+    font-size: 35px;
+  }
+
+  .paragraph {
+    font-size: 16px;
+  }
+
+  .section {
+    padding-top: 0;
+    padding-bottom: 10px;
+  }
+
+  .sectionImg, .sectionImgReverse {
+    margin: 5px;
+  }
+
+  .boxWidth {
+    max-width: 100%;
+  }
+}
+
+/* ✅ للشاشة المتوسطة */
+@media (max-width: 1024px) {
+  .heading2 {
+    font-size: 30px;
+  }
+
+  .paragraph {
+    font-size: 14px;
+  }
+
+  .section {
+    padding-top: 0;
+    padding-bottom: 12px;
+  }
+
+  .sectionInfo {
+    padding: 0 15px;
+  }
+
+  .sectionImg, .sectionImgReverse {
+    margin: 0;
+  }
+
+  .boxWidth {
+    max-width: 100%;
+  }
+}
+
+/* ✅ للموبايل */
+@media (max-width: 768px) {
+  .heading2 {
+    font-size: 25px;
+  }
+
+  .paragraph {
+    font-size: 13px;
+  }
+
+  .section,
+  .sectionReverse {
+    padding-top: 0;
+    padding-bottom: 10px;
+    flex-direction: column;
+  }
+
+  .sectionInfo {
+    padding: 0 10px;
+  }
+
+  .boxWidth {
+    padding: 0 10px;
+  }
+}
+
+/* ✅ للشاشات الصغيرة جداً */
+@media (max-width: 480px) {
+  .heading2 {
+    font-size: 22px;
+  }
+
+  .paragraph {
+    font-size: 12px;
+  }
+
+  .section {
+    padding-top: 0;
+    padding-bottom: 8px;
+  }
+
+  .sectionInfo {
+    padding: 0 8px;
+  }
+
+  .boxWidth {
+    padding: 0 8px;
+  }
+}

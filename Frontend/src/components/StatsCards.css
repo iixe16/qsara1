@@ -1,0 +1,35 @@
+.stats-cards-container {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+    direction: rtl;      /* ✅ يجعل الترتيب من اليمين */
+    justify-content: flex-start; /* ✅ يبدأ العرض من اليمين */
+  }
+  
+  .stat-card {
+    background-color: #1f2937;
+    padding: 20px;
+    border-radius: 12px;
+    width: 220px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    text-align: right;  /* ✅ النص داخل الكرت يكون لليمين */
+    transition: transform 0.3s ease;
+  }
+  
+  .stat-card:hover {
+    transform: scale(1.03);
+  }
+  
+  .label {
+    font-size: 14px;
+    color: #9ca3af;
+    margin-bottom: 10px;
+  }
+  
+  .value {
+    font-size: 20px;
+    font-weight: bold;
+    color: #fff;
+  }
+  

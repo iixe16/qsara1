@@ -1,0 +1,149 @@
+/* الهيدر العام */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 2rem;
+  background-color: rgba(10, 10, 35, 0.7);
+  color: white;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 20;
+  height: 60px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.header__logo {
+  display: flex;
+  align-items: center;
+}
+
+.header__logo-image {
+  height: 60px;
+  width: auto;
+}
+
+/* العرض الافتراضي للقائمة (للكومبيوتر) */
+.header__nav {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.header__menu {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+  margin: 0;
+  padding: 0;
+  flex-direction: row;
+}
+
+.header__menu li {
+  display: block;
+}
+
+.header__menu li a {
+  text-decoration: none;
+  color: white;
+  font-size: 1rem;
+  padding: 1rem 0;
+  transition: color 0.3s;
+}
+
+.header__menu li a:hover {
+  color: #00bcd4;
+}
+
+.header__profile {
+  margin-left: auto;
+}
+
+.header__profile-icon {
+  font-size: 30px;
+  color: white;
+}
+
+.header__menu-toggle {
+  display: none;
+  font-size: 30px;
+  color: white;
+  cursor: pointer;
+}
+
+/* إعدادات للقائمة في الشاشات الصغيرة */
+@media (max-width: 768px) {
+  /* الهيدر في الشاشات الصغيرة */
+  .header {
+    padding: 0.5rem 1rem;
+    height: 50px;
+  }
+  .header__logo-image {
+    height: 50px;
+  }
+  
+  /* إخفاء الـ nav افتراضيًا في الشاشات الصغيرة */
+  .header__nav {
+    display: none;
+    position: absolute;
+    top: 50px; /* يتناسب مع ارتفاع الهيدر المعدل */
+    right: 0;
+    background-color: rgba(10, 10, 35, 0.8);
+    width: 100%;
+    text-align: center;
+    padding: 1rem 0;
+    z-index: 19;
+  }
+  
+  /* عند إضافة الكلاس open يتم إظهار الـ nav */
+  .header__nav.open {
+    display: block;
+  }
+  
+  /* إعداد القائمة لتظهر عموديًا */
+  .header__menu {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .header__menu li {
+    margin: 0.5rem 0;
+  }
+  
+  .header__menu li a {
+    font-size: 1.2rem;
+    padding: 0.5rem 0;
+  }
+  
+  .header__profile-icon {
+    font-size: 26px;
+  }
+  
+  /* عرض زر القائمة في الشاشات الصغيرة */
+  .header__menu-toggle {
+    display: block;
+  }
+}
+
+/* للشاشات الصغيرة جدًا */
+@media (max-width: 480px) {
+  .header__logo-image {
+    height: 40px;
+  }
+  
+  .header__menu li a {
+    font-size: 1rem;
+  }
+}
+
+/* إضافة مسافة للمحتوى تحت الهيدر */
+.content {
+  padding-top: 80px;
+}

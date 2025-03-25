@@ -1,0 +1,111 @@
+/* التنسيق العام للخدمات */
+.services {
+  padding: 3rem 1rem;
+  background-color: #000319;
+  color: white;
+  text-align: center;
+}
+
+.services__title {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+
+.services__container {
+  width: 100%;
+  max-width: 1000px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  padding: 0 2rem;
+  margin: auto;
+  border-radius: 10px;
+}
+
+.service {
+  background: linear-gradient(135deg, #04071D, #0C0E23);
+  padding: 1.5rem;
+  border-radius: 10px;
+  transition: transform 0.3s;
+  height: 200px;
+  width: 100%;
+  max-width: 1000px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 1.5rem;
+}
+
+.service:hover {
+  transform: translateY(-8px);
+}
+
+.service__image {
+  width: 80px;
+  height: 80px;
+  flex-shrink: 0;
+}
+
+.service__description {
+  font-size: 1.1rem;
+  color: #d3d3d3;
+  line-height: 1.4;
+}
+
+/* ✅ للشاشات الكبيرة */
+@media (max-width: 1200px) {
+  .services__container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .service {
+    height: 180px;
+  }
+
+  .service__description {
+    font-size: 1rem;
+  }
+}
+
+/* ✅ للشاشات المتوسطة */
+@media (max-width: 768px) {
+  .services__container {
+    grid-template-columns: 1fr; /* جعل الأعمدة عمودية */
+    padding: 0 1rem;
+  }
+
+  .service {
+    height: 160px; /* تقليل ارتفاع العنصر */
+    padding: 1rem;
+  }
+
+  .service__description {
+    font-size: 0.95rem;
+  }
+
+  .service__image {
+    width: 60px;
+    height: 60px;
+  }
+}
+
+/* ✅ للشاشات الصغيرة جداً */
+@media (max-width: 480px) {
+  .services__title {
+    font-size: 1.6rem;
+  }
+
+  .service {
+    height: 150px;
+    padding: 1rem;
+  }
+
+  .service__description {
+    font-size: 0.9rem;
+  }
+
+  .service__image {
+    width: 50px;
+    height: 50px;
+  }
+}

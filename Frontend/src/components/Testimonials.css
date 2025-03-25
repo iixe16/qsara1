@@ -1,0 +1,36 @@
+.testimonials {
+    padding: 3rem;
+    background-color: #00040F;
+    text-align: center;
+  }
+  
+  .testimonials__title {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .testimonials__container {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+  }
+  
+  .testimonial {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 10px;
+    width: 250px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .testimonial p {
+    font-size: 1rem;
+    font-style: italic;
+    margin-bottom: 1rem;
+  }
+  
+  .testimonial h4 {
+    font-size: 1.2rem;
+    color: #333;
+  }
+  

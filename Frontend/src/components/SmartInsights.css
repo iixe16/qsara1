@@ -1,0 +1,45 @@
+.insights-container {
+    background-color: #1f2937;
+    padding: 20px;
+    border-radius: 16px;
+    color: white;
+    margin-bottom: 30px;
+    direction: rtl;
+  }
+  
+  .insights-title {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+  }
+  
+  .insight-box {
+    display: flex;
+    align-items: center;
+    background-color: #111827;
+    padding: 15px;
+    border-radius: 12px;
+    margin-bottom: 12px;
+    box-shadow: 0 0 8px rgba(0,0,0,0.3);
+    transition: transform 0.3s;
+  }
+  
+  .insight-box:hover {
+    transform: scale(1.02);
+  }
+  
+  .insight-icon {
+    margin-left: 15px;
+    font-size: 1.5rem;
+    color: #38bdf8;
+  }
+  
+  .insight-box p {
+    margin: 0;
+    font-size: 1rem;
+    color: #f1f5f9;
+    line-height: 1.6;
+  }
+  
+  .insight-box strong {
+    color: #facc15;
+  }

@@ -1,0 +1,41 @@
+.analysis {
+    padding: 3rem;
+    background-color: #00040F;
+    color: white;
+    text-align: center;
+  }
+  
+  .analysis__title {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+  
+  .analysis__description {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+  }
+  
+  .analysis__stats {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+  }
+  
+  .analysis__stat {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 1.5rem;
+    border-radius: 10px;
+    width: 200px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  .analysis__stat h3 {
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+    color: #00bcd4;
+  }
+  
+  .analysis__stat p {
+    font-size: 1rem;
+  }
+  
