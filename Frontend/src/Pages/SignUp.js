@@ -57,7 +57,7 @@ function SignUp() {
 
       if (response.ok) {
         
-        navigate('/login');
+        navigate('/');
       } else {
         
         setErrorMessage(data.error || 'حدث خطأ أثناء التسجيل.');

@@ -184,10 +184,52 @@ app.post('/api/signup', async (req, res) => {
 
     try {
         await newUser.save();
-        res.status(201).json({ message: "تم إنشاء الحساب بنجاح." });
+        // إعادة التوجيه إلى صفحة تسجيل الدخول بعد إنشاء الحساب بنجاح
+        res.redirect('/');
     } catch (error) {
         res.status(500).json({ error: "حدث خطأ أثناء إنشاء الحساب." });
     }
+});
+app.post('/api/reset-password-security', async (req, res) => {
+    const { email, securityQuestion, securityAnswer, newPassword } = req.body;
+
+    // تحقق من وجود الحقول
+    if (!email || !securityQuestion || !securityAnswer || !newPassword) {
+        return res.status(400).json({ error: "جميع الحقول مطلوبة." });
+    }
+
+    // تحقق من تنسيق كلمة المرور
+    const passwordRegex = /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[!@#$%^&*()_+={}\[\]|\\:;,.<>?]).{8,}$/;
+    if (!passwordRegex.test(newPassword)) {
+        return res.status(400).json({
+            error: "كلمة السر يجب أن تحتوي على الأقل على 8 أحرف، وتحتوي على حرف كبير، وحرف صغير، ورقم، ورمز خاص."
+        });
+    }
+
+    // البحث عن المستخدم باستخدام البريد الإلكتروني وسؤال الأمان
+    const user = await User.findOne({ email, securityQuestion });
+    if (!user) {
+        return res.status(400).json({ error: "إما البريد الإلكتروني أو سؤال الأمان غير صحيح." });
+    }
+
+    // التحقق من إجابة سؤال الأمان
+    const isAnswerCorrect = await bcrypt.compare(securityAnswer, user.securityAnswer);
+    if (!isAnswerCorrect) {
+        return res.status(400).json({ error: "إجابة سؤال الأمان غير صحيحة." });
+    }
+
+    // تشفير كلمة المرور الجديدة
+    const hashedNewPassword = await bcrypt.hash(newPassword, 10);
+
+    // تحديث كلمة المرور
+    user.password = hashedNewPassword;
+    await user.save();
+
+    // إرسال رسالة تأكيد مع وقت التأخير
+    res.status(200).json({ 
+        message: "تم إعادة تعيين كلمة المرور بنجاح.",
+        delay: 10000 // تحديد التأخير بالمللي ثانية (10 ثواني)
+    });
 });
 
 app.post('/api/login', async (req, res) => {

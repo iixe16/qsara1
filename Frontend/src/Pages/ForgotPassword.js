@@ -28,17 +28,17 @@ function ForgotPassword() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+  
     if (formData.newPassword !== formData.confirmPassword) {
       setErrorMessage("كلمة المرور وتأكيد كلمة المرور غير متطابقتين.");
       return;
     }
-
+  
     if (!validatePassword(formData.newPassword)) {
       setErrorMessage("كلمة السر يجب أن تحتوي على الأقل على 8 أحرف، وتحتوي على حرف كبير، وحرف صغير، ورقم، ورمز خاص.");
       return;
     }
-
+  
     try {
       const response = await fetch('https://qsara-backend.onrender.com/api/reset-password-security', {
         method: 'POST',
@@ -47,12 +47,15 @@ function ForgotPassword() {
         },
         body: JSON.stringify(formData),
       });
-
+  
       const data = await response.json();
-
+  
       if (response.ok) {
         setSuccessMessage("تم تغيير كلمة المرور بنجاح.");
-        setTimeout(() => navigate('/'), 3000);
+  
+        // تأخير الانتقال إلى صفحة تسجيل الدخول بناءً على التأخير المرسل من السيرفر
+        const delay = data.delay || 3000; // استخدام تأخير السيرفر أو تأخير 3 ثوانٍ افتراضي
+        setTimeout(() => navigate('/'), delay);
       } else {
         setErrorMessage(data.error || 'حدث خطأ أثناء تغيير كلمة المرور.');
       }
@@ -60,6 +63,7 @@ function ForgotPassword() {
       setErrorMessage('حدث خطأ في الاتصال.');
     }
   };
+  
 
   return (
     <div className="signup-container">
