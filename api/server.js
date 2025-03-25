@@ -30,7 +30,7 @@ const io = socketIo(server, {
 const PORT = process.env.PORT || 5000;
 
 const corsOptions = {
-    origin: 'http://localhost:3000',
+    origin: 'https://qsara-cb597.web.app',
     credentials: true,
     allowedHeaders: ['Content-Type', 'Authorization'],
     methods: ['GET', 'POST', 'PUT', 'DELETE']
