@@ -184,13 +184,11 @@ app.post('/api/signup', async (req, res) => {
 
     try {
         await newUser.save();
-        // إعادة التوجيه إلى صفحة تسجيل الدخول بعد إنشاء الحساب بنجاح
-        res.redirect('/');
+        res.status(201).json({ message: "تم إنشاء الحساب بنجاح." });
     } catch (error) {
         res.status(500).json({ error: "حدث خطأ أثناء إنشاء الحساب." });
     }
-});
-app.post('/api/reset-password-security', async (req, res) => {
+}); app.post('/api/reset-password-security', async (req, res) => {
     const { email, securityQuestion, securityAnswer, newPassword } = req.body;
 
     // تحقق من وجود الحقول
