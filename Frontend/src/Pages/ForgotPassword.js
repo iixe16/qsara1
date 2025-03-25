@@ -40,7 +40,7 @@ function ForgotPassword() {
     }
 
     try {
-      const response = await fetch('http://localhost:5000/api/reset-password-security', {
+      const response = await fetch('https://qsara-backend.onrender.com/api/reset-password-security', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

@@ -6,7 +6,7 @@ function Qoom() {
 
     const startSession = async () => {
       try {
-        await fetch("http://localhost:5000/api/user/start-session", {
+        await fetch("https://qsara-backend.onrender.com/api/user/start-session", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",

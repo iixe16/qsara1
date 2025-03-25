@@ -26,7 +26,7 @@ const Profile = () => {
           return;
         }
 
-        const res = await axios.get('http://localhost:5000/api/user/profile', {
+        const res = await axios.get('https://qsara-backend.onrender.com/api/user/profile', {
           headers: {
             Authorization: `Bearer ${token}`
           }
@@ -56,14 +56,14 @@ const Profile = () => {
     <div className={`profile-dashboard-container ${darkMode ? 'dark' : 'light'}`} style={{ fontFamily: 'Cairo, sans-serif' }}>
       <div className="header" style={{ textAlign: 'right' }}>
         <div className="header-top" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap' }}>
-          <h2 style={{ margin: '0 0 10px 0' }}>مرحبًا {userData.name}</h2>
+          <h2 style={{ margin: '0 0 10px 0' }}>اهلا  {userData.name}</h2><br></br>
           <button className="toggle-btn" onClick={toggleMode}>
             {darkMode ? '☀️ الوضع الفاتح' : '🌙 الوضع الداكن'}
           </button>
         </div>
         <h3 style={{ color: '#9ca3af' }}>لوحة التحكم</h3>
       </div>
-
+<br></br>
       <StatsCards sessions={userData.sessions || []} />
 
       <div className="grid-section">
