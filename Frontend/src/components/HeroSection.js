@@ -1,5 +1,5 @@
 import React from 'react';
-import { motion } from 'framer-motion';  // استيراد مكتبة framer-motion
+import { motion } from 'framer-motion';  
 import './Hero.css';
 import backgroundImage from '../assets/background.png'; 
 import Header from './Header';

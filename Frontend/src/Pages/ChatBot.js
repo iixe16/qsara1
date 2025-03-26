@@ -10,7 +10,6 @@ const App = () => {
   const [chatHistory, setChatHistory] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
 
-  // ✅ تتبع الجلسة عند دخول الصفحة ومغادرتها
   useEffect(() => {
     const token = localStorage.getItem("token");
     console.log("🎟️ التوكن المرسل:", token);
@@ -48,7 +47,7 @@ const App = () => {
     
     const endSession = async () => {
       try {
-        await fetch("http://localhost:5000/api/user/end-session", {
+        await fetch("https://qsara-backend.onrender.com/api/user/end-session", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -93,7 +92,7 @@ const App = () => {
 
       setChatHistory(newChatHistory);
 
-      await fetch("http://localhost:5000/save-chat", {
+      await fetch("https://qsara-backend.onrender.com/save-chat", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ chatHistory: newChatHistory }),

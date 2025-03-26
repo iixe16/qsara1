@@ -1,4 +1,4 @@
-/* HeroSection.css */
+
 .hero-section {
   display: flex;
   justify-content: space-between;
@@ -63,12 +63,10 @@ body {
   padding: 20px;
   box-sizing: border-box;
 }
-
-/* ✅ للشاشات الكبيرة */
 @media (max-width: 1200px) {
   .hero-content {
     max-width: 60%; 
-    padding-left: 50px; /* تقليل البادينج للعرض المتوسط */
+    padding-left: 50px;
   }
 
   .hero-title {
@@ -80,7 +78,7 @@ body {
   }
 }
 
-/* ✅ للشاشات المتوسطة */
+
 @media (max-width: 768px) {
   .hero-section {
     flex-direction: column;
@@ -92,7 +90,7 @@ body {
     padding-top: 50px;
     text-align: center;
     padding-left: 20px;
-    padding-right: 20px; /* إضافة باكس للبادينج */
+    padding-right: 20px; 
   }
 
   .hero-title {
@@ -108,7 +106,7 @@ body {
   }
 }
 
-/* ✅ للشاشات الصغيرة جداً */
+
 @media (max-width: 480px) {
   .hero-title {
     font-size: 1.8rem;

@@ -22,7 +22,7 @@ function Flashcard() {
 
     const endSession = async () => {
       try {
-        await fetch('http://localhost:5000/api/user/end-session', {
+        await fetch('https://qsara-backend.onrender.com/api/user/end-session', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -36,7 +36,7 @@ function Flashcard() {
     };
 
     startSession();
-    window.addEventListener("beforeunload", endSession); // 🟢 إضافة مضمونة
+    window.addEventListener("beforeunload", endSession); 
 
     return () => {
       endSession();

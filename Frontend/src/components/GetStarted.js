@@ -39,14 +39,7 @@ const Section = () => {
           كلنا عارفين اكبر مشكله تواجهه الطلاب وش؟ اكيد التسويف والتشتت، منصة قصارى هنا عشان نساعدك. كل شي تحتاجه في مكان واحد.
         </motion.p>
 
-        <motion.button
-          className="cta-button"
-          initial={{ scale: 0 }} 
-          whileInView={{ scale: 1 }} 
-          transition={{ duration: 0.5, delay: 0.5 }}
-        >
-          يلا نبدأ؟
-        </motion.button>
+       
       </motion.div>
     </motion.div>
   );

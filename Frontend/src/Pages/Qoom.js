@@ -21,7 +21,7 @@ function Qoom() {
 
     const endSession = async () => {
       try {
-        await fetch("http://localhost:5000/api/user/end-session", {
+        await fetch("https://qsara-backend.onrender.com/api/user/end-session", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -36,15 +36,11 @@ function Qoom() {
     // نسجل الجلسة
     startSession();
 
-    // نسجل نهاية الجلسة عند مغادرة الصفحة أو تحديثها
     window.addEventListener("beforeunload", endSession);
 
-    // نحوله لواجهة Qoom بعد لحظة
     const timeout = setTimeout(() => {
       window.location.assign("https://qoom-244v.vercel.app/");
-    }, 500); // نصف ثانية قبل التحويل
-
-    // ننظف المستمع عند الخروج
+    }); 
     return () => {
       window.removeEventListener("beforeunload", endSession);
       endSession();

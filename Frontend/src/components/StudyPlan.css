@@ -4,8 +4,8 @@
     border-radius: 16px;
     margin-top: 30px;
     color: white;
-    direction: rtl; /* ✅ تجعل النص من اليمين لليسار */
-    text-align: right; /* ✅ تحاذي النص لليمين */
+    direction: rtl;
+    text-align: right; 
   }
   
   .study-plan-container h3 {

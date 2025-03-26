@@ -3,7 +3,7 @@ import '../style/Login.css';
 import { Link, useNavigate } from "react-router-dom";
 import { FaEnvelope, FaLock, FaEye, FaEyeSlash } from "react-icons/fa6";
 
-function SignUp() {
+function Login() {
   const [formData, setFormData] = useState({
     email: '',
     password: '',
@@ -55,7 +55,7 @@ function SignUp() {
     
       const data = await response.json();
 if (data.token) {
-  localStorage.setItem('token', data.token); // حفظ التوكن
+  localStorage.setItem('token', data.token);
   navigate('/Home');
 } else {
   setErrorMessage('لم يتم استقبال التوكن، تحقق من السيرفر.');
@@ -117,4 +117,4 @@ if (data.token) {
   );
 }
 
-export default SignUp;
+export default Login;

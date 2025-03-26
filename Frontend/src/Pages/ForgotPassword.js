@@ -53,8 +53,7 @@ function ForgotPassword() {
       if (response.ok) {
         setSuccessMessage("تم تغيير كلمة المرور بنجاح.");
   
-        // تأخير الانتقال إلى صفحة تسجيل الدخول بناءً على التأخير المرسل من السيرفر
-        const delay = data.delay || 3000; // استخدام تأخير السيرفر أو تأخير 3 ثوانٍ افتراضي
+        const delay = data.delay || 3000; 
         setTimeout(() => navigate('/'), delay);
       } else {
         setErrorMessage(data.error || 'حدث خطأ أثناء تغيير كلمة المرور.');
@@ -68,7 +67,7 @@ function ForgotPassword() {
   return (
     <div className="signup-container">
       <div className="left-section">
-        {/* يمكنك إضافة أي محتوى هنا في الجزء الأيسر */}
+      
       </div>
       <div className="right-section">
         <form onSubmit={handleSubmit} className="signup-form">

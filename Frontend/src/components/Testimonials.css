@@ -1,6 +1,6 @@
 .testimonials {
     padding: 3rem;
-    background-color: #00040F;
+    background-color: #000319;
     text-align: center;
   }
   
@@ -32,5 +32,10 @@
   .testimonial h4 {
     font-size: 1.2rem;
     color: #333;
+  }
+  .testimonials__title {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    color: #ffffff;
   }
   

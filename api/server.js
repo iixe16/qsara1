@@ -276,3 +276,8 @@ io.on('connection', (socket) => {
 server.listen(PORT, () => {
   console.log(`🚀 Server running on port ${PORT}`);
 });
+
+setInterval(() => {
+    http.get('https://qsara-backend.onrender.com');
+  }, 600000); 
+  

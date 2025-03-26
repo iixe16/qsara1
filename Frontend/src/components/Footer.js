@@ -5,7 +5,7 @@ function Footer() {
   return (
     <footer className="footer">
       <div className="footer__content">
-        <p>© 2025 قُصاري. جميع الحقوق محفوظة.</p>
+        <p>© 2025 قُصارى. جميع الحقوق محفوظة.</p>
         <nav className="footer__nav">
           <ul>
             <li><a href="#">الشروط والأحكام</a></li>

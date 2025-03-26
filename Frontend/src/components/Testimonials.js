@@ -7,7 +7,7 @@ function Testimonials() {
       <h2 className="testimonials__title">آراء المستخدمين</h2>
       <div className="testimonials__container">
         <div className="testimonial">
-          <p>"تجربة رائعة! ساعدني قُصاري على تحسين أدائي الأكاديمي بشكل ملحوظ."</p>
+          <p>"تجربة رائعة! ساعدني قُصارى على تحسين أدائي الأكاديمي بشكل ملحوظ."</p>
           <h4>- أحمد علي</h4>
         </div>
         <div className="testimonial">
