@@ -110,7 +110,7 @@ if (data.token) {
             <p className="log-p">هل نسيت كلمة السر؟</p>
           </Link>
           <button type="submit">تسجيل دخول</button>
-          <p>لديك حساب بالفعل؟ <Link to="/SignUp">انشاء حساب</Link></p>
+          <p>ليس لديك حساب؟<Link to="/SignUp">انشاء حساب</Link></p>
         </form>
       </div>
     </div>
