@@ -25,6 +25,9 @@ const io = socketIo(server, {
     cors: { origin: '*', methods: ['GET', 'POST'] },
 });
 
+// Trust Proxy
+app.set('trust proxy', true);
+
 // Middlewares
 app.use(helmet());
 app.use(compression());
