@@ -17,10 +17,12 @@ const User = require('./models/user');
 const Chat = require('./models/chatModel');
 const ActivityLog = require('./models/activityLog'); 
 
-
 const app = express();
+app.set('trust proxy', 1); 
+
 app.use(express.static(path.join(__dirname, 'public')));
 const server = http.createServer(app);
+
 const io = socketIo(server, {
     cors: {
         origin: "*",
@@ -37,7 +39,6 @@ const corsOptions = {
     methods: ['GET', 'POST', 'PUT', 'DELETE']
 };
 
-
 const limiter = rateLimit({
     windowMs: 15 * 60 * 1000,
     max: 100,
@@ -51,14 +52,14 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(limiter);
 
-mongoose.connect(process.env.MONGODB_URI, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-}).then(() => {
+
+mongoose.connect(process.env.MONGODB_URI)
+.then(() => {
     console.log("✅ Connected to MongoDB Atlas");
 }).catch(err => {
     console.error("❌ MongoDB connection error:", err);
 });
+
 
 const transporter = nodemailer.createTransport({
     service: 'gmail',
@@ -276,3 +277,14 @@ io.on('connection', (socket) => {
 });
 
 server.listen(PORT, () => console.log(`🚀 Server running on port ${PORT}`));
+//  Self-ping to keep the server awake on Render
+setInterval(() => {
+    const https = require('https');
+
+    https.get('https://qsara-backend.onrender.com', (res) => {
+        console.log(`🔁 Self-ping sent. Status code: ${res.statusCode}`);
+    }).on('error', (err) => {
+        console.error('⚠️ Error in self-ping:', err.message);
+    });
+}, 10 * 60 * 1000); // كل 10 دقائق
+
