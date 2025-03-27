@@ -31,11 +31,12 @@ const io = socketIo(server, {
 const PORT = process.env.PORT || 5000;
 
 const corsOptions = {
-    origin: 'https://qsara-cb597.web.app',
+    origin: ['https://qsara-cb597.web.app', 'http://localhost:3000'],
     credentials: true,
     allowedHeaders: ['Content-Type', 'Authorization'],
     methods: ['GET', 'POST', 'PUT', 'DELETE']
 };
+
 
 const limiter = rateLimit({
     windowMs: 15 * 60 * 1000,
@@ -197,7 +198,7 @@ app.post('/api/signup', async (req, res) => {
         return res.status(400).json({ error: "جميع الحقول مطلوبة." });
     }
 
-    // تحقق من تنسيق كلمة المرور
+   
     const passwordRegex = /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[!@#$%^&*()_+={}\[\]|\\:;,.<>?]).{8,}$/;
     if (!passwordRegex.test(newPassword)) {
         return res.status(400).json({
@@ -205,29 +206,29 @@ app.post('/api/signup', async (req, res) => {
         });
     }
 
-    // البحث عن المستخدم باستخدام البريد الإلكتروني وسؤال الأمان
+    
     const user = await User.findOne({ email, securityQuestion });
     if (!user) {
         return res.status(400).json({ error: "إما البريد الإلكتروني أو سؤال الأمان غير صحيح." });
     }
 
-    // التحقق من إجابة سؤال الأمان
+    
     const isAnswerCorrect = await bcrypt.compare(securityAnswer, user.securityAnswer);
     if (!isAnswerCorrect) {
         return res.status(400).json({ error: "إجابة سؤال الأمان غير صحيحة." });
     }
 
-    // تشفير كلمة المرور الجديدة
+    
     const hashedNewPassword = await bcrypt.hash(newPassword, 10);
 
-    // تحديث كلمة المرور
+
     user.password = hashedNewPassword;
     await user.save();
 
-    // إرسال رسالة تأكيد مع وقت التأخير
+    
     res.status(200).json({ 
         message: "تم إعادة تعيين كلمة المرور بنجاح.",
-        delay: 10000 // تحديد التأخير بالمللي ثانية (10 ثواني)
+        delay: 10000 
     });
 });
 
@@ -273,8 +274,5 @@ io.on('connection', (socket) => {
         console.log("🔴 Client disconnected:", socket.id);
     });
 });
-setInterval(() => {
-    http.get('https://qsara-backend.onrender.com');
-}, 600000);
 
 server.listen(PORT, () => console.log(`🚀 Server running on port ${PORT}`));
